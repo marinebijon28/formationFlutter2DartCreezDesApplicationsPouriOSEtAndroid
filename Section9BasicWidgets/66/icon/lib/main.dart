@@ -155,7 +155,7 @@ class BasicPages extends StatelessWidget {
            * Widget qui centre un autre widget tout simpement. Ici je vais vouloir
            * mon text child.
            */
-          child: Center (
+            child: Center (
             /**
              * Il aura un child demo qui sera un spanDemo. Vous vous voyez que
              * notre center est centré. Il est centré un peu bas, il est centré
@@ -165,18 +165,62 @@ class BasicPages extends StatelessWidget {
              * dans un container pour avoir un élément centré. Par exemple à la
              * place de notre spanDémo.
              */
-            //child : spanDemo(),
+            /*
+              child : spanDemo(),
             /**
              * On peut mettre un container une width de 80 et une height 80 et une
              * color pinkAccent. Si je relance on a un carré de 80 sur 80. Un
              * carré rose qui est parfaitement centré au sein de notre application
              */
-            child: Container(
-              width: 80,
-              height: 80,
-              color: Colors.pinkAccent,
+                child: Container(
+                width: 80,
+                height: 80,
+                color: Colors.pinkAccent,
             ),
-          )
+         )*/
+          /**
+           * On va passer aux images. Qu'est-ce qu'on pourrait avoir ? On
+           * pourrait avoir cette icône à l'intérieur. Ici au lieu de montrer le
+           * Container. Je vais dans Widget catalogue dans mes basics une Icon.
+           * C'est un Matériel Design. Icon elle est déjà présente dans Matériel
+           * Design. On va avoir dans les icônes : un nom, une couleur, une
+           * taille et un semanticLabel. C'est par rapport à l'accessibilité, au
+           * personne qui sont malvoyante. On a juste à taper Icon on ouvre ou
+           * on ferme les parenthèses. Ce qui faut savoir c'est-ce que les
+           * icônes, on va leur choisir principalement une taille, une couleur
+           * et bien évidemment une icône. C'est-ce au'on va voit ici. Ces
+           * icônes on va pouvoir les ajouter des IconButton, des
+           * loatingActionButton et dans plein d'endroits. L'IconButton nous
+           * servira à avoir une icône qui sera cliquable.
+           */
+          child: Icon(
+          /**
+            * Icons
+            * Il va falloir mettre juste Icons., on a voir
+            * une liste tous les icônes. Je vais choisir Icons.house. Si je veux
+            * sauvegarde et que je montre. Ici on a une icône noir. De base, elle
+            * sera noir.
+           */
+            Icons.house,
+          /**
+            * size
+            * Elle avait une size ce sera un double. On pourrait vouloir qu'elle fasse
+            * un dixième de la largeur : size.width, les médias queries of context.
+            * Donc size.width / 10. Si je l'avais / 3. On aura quelque chose comme
+            * ça. On va mettre 5 sur notre icône.
+            */
+            size : size.width / 5,
+          /**
+            * Colors.yellow que ce soit bien moche. Ça c'est le principal.
+            */
+            color : Colors.yellow,
+          /**
+           *  On pourrait avoir semanticLabel qui sera. Ceci est une maison et
+           *  ça sera pour l'accessibilité. Ça honnêtement on va peu s'en
+           *  servir.
+           */
+            semanticLabel: "Ceci est une maison",
+          ),
       ),
     );
   }
