@@ -234,85 +234,182 @@ class BasicPages extends StatelessWidget {
               semanticLabel: "Ceci est une maison",
             */
             /**
-             * Image.network
-             * On peut télécharger une image depuis Internet. Moi ce que j'aime
-             * bien c'est allé sur pixels.com. Pourquoi ? Par ce que ce sont des
-             * images libres de droits ce qu'on pourrait faireces prendre une
-             * image au hasard. Je vais prendre une image une vidéo de plage.
-             * Ici je peux télécharger gratuitement et on va regarder. Elle est
-             * libre de droit. Parfait je télécharge gratuitement. On peut
-             * définir un lien. Cette image on l'utilisera quand on devra
-             * télécharger. Si je reviens en arriére, je peux prendre celle-là.
-             * cette image je vais vouloir faire ouvrir l'image dans un nouvel
-             * onglet. Je vais prendre l'URL de l'image. Je vais prendre celle-
-             * là. Je vais retourner dans mon Flutter dans notre projet et à la
-             * place de l'icône. Je vais commencer à taper une Image.network().
-             * Alors, qu'est-ce sait Matthieu ? On va retourner sur Widget. Ici
-             * on a une image. Donc notre image, ils vont nous expliquer comment
-             * utiliser une image avec des contructeurs. Moi ce aue je veux
-             * c'est une image, ils vont nous expliquer une image. Moi ce aue je
-             * veux c'est une Image.network(). Alors, qu'est-ce que sait
-             * Matthieu ? On va retourner sur Widget. Ici on a une image. Donc
-             * notre image. Moi ce aue je veux c'est Image.network et
-             * Image.asset.
-             * Image.network c'est une image qui a été obtenu depuis internet.
-             * On va pouvoir choisir une image, un scale, une width, une height,
-             * une couleur de fond, un alignement et un BoxFit. C'est le BoxFit,
-             * height et width qui vont être les plus important.
+             * Désormais qund je vais vouloir l'ajouter ici. Je vais prendre
+             * fromAsset par rapport à cette valeur size et ça fonctionne de la
+             * même façon.
              */
-              child : Image.network(
-                /**
-                 * Alors, ici src c'est la source dans donc ça va être une
-                 * string. C'est quoi la string ? C'est ce que j'ai copié.
-                 * J'ouvre les guillemets. Je colle mon image URL. Je lance et
-                 * sur mon mon application j'ai l'image. Donc on a réussi à
-                 * télécharger une image sur internet.
-                 */
-                  "https://images.pexels.com/photos/1756086/pexels-photo-1756086.j"
-                      + "peg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-                  /**
-                   * colors
-                   * Je pourrai lui ajouter une couleur et on va mettre une
-                   * Colors.teal. Ça sert à quoi Matthieu ? Ça va nous cacher
-                   * notre image. Ça on ne va pas là vouloir.
-                   */
-                  //color : Colors.teal,
-                  /**
-                   * height
-                   * On pourrait avoir une height. On va la mettre de 150 et vous
-                   * voyez qu'on vous voyez qu'automatiquement.
-                   */
-                  height : 150,
-                  /**
-                   * width
-                   * Elle s'est resizé où on pourrait avoir width disont 300. Le
-                   * width de 300 n'a pas été pris en compte parce qu'il rentre dans
-                   * la hauteur.
-                   */
-                  width: size.width,
-                  /**
-                   * BoxFit
-                   * Je vous ai parlé du fit qui sera un BoxFit et on pourrait avoir
-                   * BoxFit.. On va voir plein de choses. BoxFit.cover ça veut dire
-                   * que ça va prendre la taille définit et ça va remplir en partant
-                   * du centre.
-                   * On pourrait avoir BoxFit.fill, ça veut dire aue ça vous remplit
-                   * le container donc la hauteur et la largeur. Ça va déformez
-                   * l'image pour qu'on est toute l'image.
-                   * On pourrait avoir quoi le contain. La valeur de base.
-                   * On va voir le FitHeight. C'est exactement la même chose ça va
-                   * prendre la taille de mon image.
-                   * Le fitWidth aui va centré au cover.
-                   * On peut avoir scaleDown. Ça va récupérer l'image pour qu'elle
-                   * rentre en entier.
-                   * On va vouloir utiliser ici le cover et on pourrait avoir width.
-                   * Le size.width pour que ça prenne l'intégralité. Voilà pour l'
-                   * Image.network.
-                   */
-                  fit : BoxFit.cover
-              )
+              //child : fromNetwork(size)
+              child : fromAsset(size)
           )
       ),
+    );
+  }
+
+  /**
+   * Je pourrais juste ici de faire une Image qui sera fromAsset. Je vais
+   * retourner tout simplement ici. Là vous voyez que si je renvoie ceci. Il ne
+   * reconnaît plus la size. Pourquoi ? On est plus à l'intérieur de notre
+   * fonction qui a le BuildContext. Donc je pourrais la récupérer la size.
+   * Donc c'est une classe Size size.
+   */
+  Image fromAsset(Size size) {
+    /**
+     * Image.asset
+     * Vous vous rappelez que j'avais télécharger une image de dans la
+     * vidéo précédente. Vous voyez l'image de plage. on avait copié
+     * l'URL et l'autre on avait copié une image. Alors, pour ajouter
+     * une image dans notre application et ne pas avoir à la télécharger
+     * sur internet. Ça risque d'être vachement utile notamment si les
+     * gens ont un mauvaise connection ou pas du tout. Ce que je vais
+     * faire un click droit pour créer un New > Directory. C'est-à-dire
+     * je crée un nouveau dossier. Ce nouveau dossier images. A
+     * l'intérieur de ce dossier c'est click droit Open In finder. Voilà
+     * mon projet dans mon dossier fraichement créer. Je vais copié
+     * l'image que j'ai téléchargé que j'ai nommé beach. Maintenant vous
+     * allez voir petit à petit ça va se mettre à jour ici. Si je change
+     * de page. Vous voyez qu'on a beach.jpg et pour l'utiliser cette
+     * image. Il va falloir que je l'ajoute dans ce fameux dossier le
+     * pubspec.yaml. Qu'est-ce qu'il va nous permettre des
+     * spécifications. Par exemple ici ce que nous voulons voir. Il va
+     * donner la version de l'environnement, des dependencies. Si on
+     * ajouter autre choses. Les copertino_icons qui ont été ajouté. La
+     * ici to add assets que ce soit to your application. Si on veut
+     * ajouter des assets que ce soit des fonts, des images et
+     * compagnies. Il va falloir décommenté cette fonction. Je
+     * décommente la partie assets. Je vais supprimer. Après ceci je
+     * vais faire - espace et je vais vouloir récupérer mon image. Il va
+     * falloir que je choisisse le chemin. Ça va être le nom de dossier
+     * Images/beach.jpg. Ça aurait pu ici faire un click droit faire un
+     * Copy > Path From Content Root. Si je fais ceci ça nous aurait
+     * donné exactement la même chose pour que notre application puisse
+     * prendre en compte. Je click en haut à droite pour que ce
+     * changement soit pris en compte. Je vais obtenir un message avec
+     * un numéro de sortie. Si c'est 0. C'est au'on a pas d'erreur. Il
+     * va falloir que tout fonctionne bien que je relance l'application.
+     * Pourquoi ? Si je fais un hot reload. Il risque de ne pas avoir
+     * prit en compte mon image. C'est possible aue je dois carrément
+     * arrété donc si vous avez une erreur dès le début c'est possible
+     * que ce soit à cause de ça. Maintenant je vais revenir sur mon
+     * main.dart. Je vais obtenir mes dependicies et on va vouloir
+     * changer Image.network par image.asset. Cela va fonctionner de la
+     * même façon à part qu'on ne va pas avoir une src.
+     */
+    return Image.asset(
+        /**
+         * name
+         * On va avoir une string name. On va devoir donné en tant que
+         * string le chemin du fichier. Copy > Path From Content Root.
+         * Maintenant si je relance. Vous voyez que notre image est
+         * apparut.
+         */
+        "images/beach.jpg",
+        /**
+         * fit
+         * On pourrait faire quoi ? On pourrait faire un fit : BoxFit.cover. On
+         * voir que ça ne change pas pas.
+         */
+        fit: BoxFit.cover,
+        /**
+         * height
+         * Une height : size.height. Çela prendra l'intégralité de notre écran
+         */
+        height: size.height,
+        /**
+         * width
+         * Si je lui avais mit une width : 75. Ça va être moche. On aurait juste
+         * ceci. On pourrait prendre size.width pour qu'on est l'intégralité de
+         * l'écran. On a pu avoir notre image à partir de nos assets. Vous
+         * voyez, on a quelques étapes à respecter. Bien avoir un dossier, bien
+         * rajouterdans le pubspec. Relancé notre application. Après vous avez
+         * accès à vos images.
+         */
+        width : size.width
+    );
+  }
+
+  /**
+   * Je vais prendre 30 secondes pour rajouter mon Image fromNetwork qui sera
+   * une Image.network par rapport à la source. La source je vais la mettre
+   * comme ceci. Je n'oublis pas return comme ça.
+   */
+  Image fromNetwork(Size size) {
+    /**
+     * Image.network
+     * On peut télécharger une image depuis Internet. Moi ce que j'aime
+     * bien c'est allé sur pixels.com. Pourquoi ? Par ce que ce sont des
+     * images libres de droits ce qu'on pourrait faireces prendre une
+     * image au hasard. Je vais prendre une image une vidéo de plage.
+     * Ici je peux télécharger gratuitement et on va regarder. Elle est
+     * libre de droit. Parfait je télécharge gratuitement. On peut
+     * définir un lien. Cette image on l'utilisera quand on devra
+     * télécharger. Si je reviens en arriére, je peux prendre celle-là.
+     * cette image je vais vouloir faire ouvrir l'image dans un nouvel
+     * onglet. Je vais prendre l'URL de l'image. Je vais prendre celle-
+     * là. Je vais retourner dans mon Flutter dans notre projet et à la
+     * place de l'icône. Je vais commencer à taper une Image.network().
+     * Alors, qu'est-ce sait Matthieu ? On va retourner sur Widget. Ici
+     * on a une image. Donc notre image, ils vont nous expliquer comment
+     * utiliser une image avec des contructeurs. Moi ce aue je veux
+     * c'est une image, ils vont nous expliquer une image. Moi ce aue je
+     * veux c'est une Image.network(). Alors, qu'est-ce que sait
+     * Matthieu ? On va retourner sur Widget. Ici on a une image. Donc
+     * notre image. Moi ce aue je veux c'est Image.network et
+     * Image.asset.
+     * Image.network c'est une image qui a été obtenu depuis internet.
+     * On va pouvoir choisir une image, un scale, une width, une height,
+     * une couleur de fond, un alignement et un BoxFit. C'est le BoxFit,
+     * height et width qui vont être les plus important.
+     */
+    return Image.network(
+        /**
+         * Alors, ici src c'est la source dans donc ça va être une
+         * string. C'est quoi la string ? C'est ce que j'ai copié.
+         * J'ouvre les guillemets. Je colle mon image URL. Je lance et
+         * sur mon mon application j'ai l'image. Donc on a réussi à
+         * télécharger une image sur internet.
+         */
+        "https://images.pexels.com/photos/1756086/pexels-photo-175608"
+            + "6.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+        /**
+         * colors
+         * Je pourrai lui ajouter une couleur et on va mettre une
+         * Colors.teal. Ça sert à quoi Matthieu ? Ça va nous cacher
+         * notre image. Ça on ne va pas là vouloir.
+         */
+        //color : Colors.teal,
+        /**
+         * height
+         * On pourrait avoir une height. On va la mettre de 150 et
+         * vous voyez qu'on vous voyez qu'automatiquement.
+         */
+        height : 150,
+        /**
+         * width
+         * Elle s'est resizé où on pourrait avoir width disont 300. Le
+         * width de 300 n'a pas été pris en compte parce qu'il rentre
+         * dans la hauteur.
+         */
+        width: size.width,
+        /**
+         * BoxFit
+         * Je vous ai parlé du fit qui sera un BoxFit et on pourrait
+         * avoir BoxFit.. On va voir plein de choses. BoxFit.cover ça
+         * veut dire que ça va prendre la taille définit et ça va
+         * remplir en partant du centre.
+         * On pourrait avoir BoxFit.fill, ça veut dire aue ça vous
+         * remplit le container donc la hauteur et la largeur. Ça va
+         * déformez l'image pour qu'on est toute l'image.
+         * On pourrait avoir quoi le contain. La valeur de base.
+         * On va voir le FitHeight. C'est exactement la même chose ça
+         * va prendre la taille de mon image.
+         * Le fitWidth aui va centré au cover.
+         * On peut avoir scaleDown. Ça va récupérer l'image pour
+         * qu'elle rentre en entier.
+         * On va vouloir utiliser ici le cover et on pourrait avoir
+         * width. Le size.width pour que ça prenne l'intégralité.
+         * Voilà pour l'Image.network.
+         */
+        fit : BoxFit.cover
     );
   }
 
