@@ -141,6 +141,9 @@ class BasicPages extends StatelessWidget {
           Icon(
               Icons.handyman
           ),
+          Icon(
+              Icons.border_color
+          ),
         ],
         /**
          * On pourrait avoir un centerTitle : true. Notre texte ce centre. C'est
