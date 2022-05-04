@@ -126,10 +126,10 @@ class BasicPages extends StatelessWidget {
          * couleur qui dépend de la primarySwatch.
          */
         title: Text("Mon app basic"),
-          /**
-           * Ça pourrait une Icon. Icons.favorite, on petit coeur étant donné
-           * sur le thème rouge.
-           */
+        /**
+         * Ça pourrait une Icon. Icons.favorite, on petit coeur étant donné
+         * sur le thème rouge.
+         */
         leading: Icon(
           Icons.favorite,
         ),
@@ -336,12 +336,12 @@ class BasicPages extends StatelessWidget {
                  * appelle dans ma card élévation.
                  */
               ),
+              */
+              /**
+               * Si on mettait mon simpleText. Je suis dans une card les amis et
+               * vous voyez que notre card. Elle est belle et bien là.
                */
-                /**
-                 * Si on mettait mon simpleText. Je suis dans une card les amis et
-                 * vous voyez que notre card. Elle est belle et bien là.
-                 */
-                /*
+              /*
             child: simpleText("Je suis dans une card les amis"),
             /**
              * Pourquoi on ne voit pas ? Parce que blanc sur blanc. Si je lance,
@@ -370,7 +370,7 @@ class BasicPages extends StatelessWidget {
                  * child, un seul enfant. Alors comment on pourrait faire
                  * Matthieu ?
                  */
-               child: Padding(
+                child: Padding(
                   /**
                    * Vous avez remarqué que si je mets ce padding. Je ne peux
                    * pas utiliser
@@ -385,7 +385,89 @@ class BasicPages extends StatelessWidget {
                    * Padding et un child, un enfant et ça va permettre un Padding a
                    * un élément qui en a pas.
                    */
-                  child: fromNetwork(size),
+                  //child: fromNetwork(size),
+                  /**
+                   * Alors, vous avez remarqué on imbriquait un child à
+                   * l'intérieur d'un notre child, mais il va y avoir des
+                   * moments où on va devoir imbriquer plusieurs éléments. Dans
+                   * cette card par exemple, si on voulait une image, mais aussi
+                   * un texte. Comment on ferait Matthieu. On va retourner sur
+                   * notre card et on a un padding. On avait un child
+                   * fromNetwork. Ça on va supprimer et je vais vouloir ajouter
+                   * un child avec la fois un élément en haut et en bas. Donc
+                   * je vais vouloir dans une forme Column. Ce Widget va avoir
+                   * plusieurs éléments. Je vais revenir ici, je vais aller
+                   * dans mes basics Je vais choisir la colonne. C'est layout
+                   * pour une liste de Widget. On va avoir notre constructeur
+                   * ici. On va voir un axe d'alignement le MainAxisAlignement.
+                   * On va voir un style une MainAxisStyle, une
+                   * CrossAxisAligmement,une TextDirection, une
+                   * VerticalDirection et on va avoir des Widgets, des childrens
+                   * une liste. Vous vous rappelez des basics. Alors, ceci on
+                   * va faire ? On va commencer par ajouter des childrens. On a
+                   * array vide de children. Comment on pourrait faire.
+                   */
+                  child: Column(
+                  /**
+                   * Vous voyez qu'on a notre card qui a prit toute la
+                   * place parce qu'on avait un mainAxisSize qui était
+                   * MainAxisSize qui était par défaut .max. Si je faisais .min.
+                   * Ça nous donnerait quoi ? Ça nous donnerait notre colonne
+                   * demande la taille minimale de tout notre UI. Donc on peut
+                   * choisir min ou max. On va avoir, un mainAxisAlignement. On
+                   * le verra un peu plus tard. Si j'avais mis
+                   * MainAxisSize. Vous voyez qu'on prends de plus place.
+                   */
+                    mainAxisSize: MainAxisSize.max,
+                  /**
+                   * Là je vais pouvoir utiliser mainAxisAlignement qui
+                   * MainAxisAlignement. Je vais pouvoir choisir spaceEvenly.
+                   * Ça veut dire quoi ? Les éléments mes childrens vont
+                   * s'espacer de la même façon.
+                   * Je vais pouvoir mettre spaceBetween. Ça serait le premier
+                   * élément sera totalement haut, le dernier élément
+                   * totalement bas et les autres vont s'aligner en relation et
+                   * auront le même espacement. C'est juste le haut et le bas
+                   * seront collés.
+                   * MainAxisAlignement.end, on peut mettre spaceAround qui va
+                   * s'espacer un peu comme le spaceEvenly. Voilà comment elle
+                   * fonctionne une colonne.
+                   */
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  /**
+                   * On pourrait avoir le crossAxisAlignement.start si je veux
+                   * que tous les éléments partent du départ.
+                   * CrossAxisAlignement.end si je veux que tous à la fin.
+                   * Grâce à ses modifyer, grace à ses paramètres, on va pouvoir
+                   * faire notre colonne comme on va avoir envie.
+                   */
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      /**
+                       * Ce que je vais vouloir. C'est qu'on rajoute plusieurs
+                       * éléments. Donc vous voyez que la j'ai ajouté une
+                       * liste plusieurs Widgets. On va avoir une image
+                       * fromNetwork et un spanDemo. Je pourrais lui rajouter.
+                       */
+                      /**
+                       * Un Text tout simple je n'oublit pas de le mettre entre
+                       * guillemets. "test de la colonne" je rajoute bien une
+                       * virgule parce qu'on est dans une liste. Les éléments
+                       * sont classés et on a une liste. Maintenant vous voyez
+                       * qu'on a test de la colonne.
+                       */
+                      Text("test de la colonne"),
+                      /**
+                       * On pourrait déjà ajouter fromNetwork. Si je l'ajoute
+                       * juste comme ça. On avait le TextSpan. On l'aurait
+                       * nommé comment ? On avais le TextSpan. On l'avait nommé
+                       * le SpanDemo. Donc vous voyez que désormais on a notre
+                       * image et ensuite on a notre style.
+                       */
+                      fromNetwork(size),
+                      spanDemo(),
+                    ],
+                  ),
                 ),
                 /**
                  * Je vais enlever cette Colors.teal pas très jolie. On a
@@ -394,7 +476,7 @@ class BasicPages extends StatelessWidget {
                  * Un petit effet sympathique tout simplement parce qu'on a
                  * une petite bordure tout le long.
                  */
-               // color: Colors.teal,
+                //color : Colors.teal
                 /**
                  * Une élévation imaginez je la prends a dix. Vous voyez désormais
                  * on a une petite ombre, une petite shadow. On pourrait mettre
