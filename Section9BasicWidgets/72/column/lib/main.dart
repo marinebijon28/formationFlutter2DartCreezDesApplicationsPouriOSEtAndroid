@@ -442,13 +442,13 @@ class BasicPages extends StatelessWidget {
                    * faire notre colonne comme on va avoir envie.
                    */
                     crossAxisAlignment: CrossAxisAlignment.end,
+                    /**
+                     * Ce que je vais vouloir. C'est qu'on rajoute plusieurs
+                     * éléments. Donc vous voyez que la j'ai ajouté une
+                     * liste plusieurs Widgets. On va avoir une image
+                     * fromNetwork et un spanDemo. Je pourrais lui rajouter.
+                     */
                     children: [
-                      /**
-                       * Ce que je vais vouloir. C'est qu'on rajoute plusieurs
-                       * éléments. Donc vous voyez que la j'ai ajouté une
-                       * liste plusieurs Widgets. On va avoir une image
-                       * fromNetwork et un spanDemo. Je pourrais lui rajouter.
-                       */
                       /**
                        * Un Text tout simple je n'oublit pas de le mettre entre
                        * guillemets. "test de la colonne" je rajoute bien une
@@ -478,9 +478,9 @@ class BasicPages extends StatelessWidget {
                  */
                 //color : Colors.teal
                 /**
-                 * Une élévation imaginez je la prends a dix. Vous voyez désormais
-                 * on a une petite ombre, une petite shadow. On pourrait mettre
-                 * 7.5. Vous le voyez ce petit élément.
+                 * Une élévation imaginez je la prends a dix. Vous voyez
+                 * désormais on a une petite ombre, une petite shadow. On
+                 * pourrait mettre 7.5. Vous le voyez ce petit élément.
                  */
                 elevation: 7.5,
               )
