@@ -705,44 +705,6 @@ class BasicPages extends StatelessWidget {
                          */
                         alignment: Alignment.topCenter,
                       ),
-                      /**
-                       * Divider
-                       * Passons à un élément qui est hyper rapide, mais qui est
-                       * hyper utile. C'est quand vous utilisez des colonnes.
-                       * Vous aimez un petit trait pour diviser des sections.
-                       * Pour ceci on va utiliser divider. Je mets une virgule
-                       * et si je lance. Vous voyez qu'on a un léger trait. Ce
-                       * petit trait, il pourrait avoir quoi comme paramètre ?
-                       * un double en hauteur, thickness, indent, color.
-                       */
-                      Divider(
-                        /**
-                         * Si je mettai\ Colors.teal. Vous voyez il est teal.
-                         */
-                        color: Colors.teal,
-                        /**
-                         * Qu'est-ce au'on avait ? On avait une height. On va la
-                         * mettre sur 10. On va voir ce que ça donne. Vous
-                         * voyez qu'on a pas grand chose parce que c'est la
-                         * hauteur.
-                         */
-                        height: 10,
-                        /**
-                         *  Ce n'est pas la thickness si je la mets sur 5. Vous
-                         *  voyez que désormais c'est beaucoup plus gros. Alors,
-                         *  vous voyez très bien que la on aura le widget qui
-                         *  sera à dix et un petit padding de chaque côté. On
-                         *  aura une thickness de 5. Si j'avais la thickness sur
-                         *  30. Elle aurait déborder du Widget. C'est pas
-                         *  forcément ce que je veux. Faut pas non plus que ça
-                         *  trop épais. Si je mets 1 ça serait pas mal ou 1.5 ou
-                         *  pas en mettre du tout. Donc ça c'est le divider.
-                         *  C'est super simple à utiliser et c'est super utile.
-                         */
-                        //thickness: 5,
-                        //thickness: 30,
-                        thickness: 1,
-                      ),
                       Container(
                         /**
                          * Ici un container qui aurait une Colors.teal
