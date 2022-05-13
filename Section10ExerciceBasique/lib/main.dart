@@ -40,47 +40,20 @@ class MyHomePage extends StatelessWidget{
           child: Column(
             children: [
               // pour superposer les images
-              Stack(
-                // pour placer l'image en haut
-                alignment: Alignment.topCenter,
-                children: [
-                  // taille total
-                  fromAsset(height : 200, width : screenSize.width),
-                  Padding(
-                    // permet de placer l'image du circle avatar plus bas
-                    padding: EdgeInsets.only(top: 130),
-                    // bordure blanche de la photo de profil
-                    child : CircleAvatar(
-                      backgroundColor: Colors.white,
-                      radius: 60,
-                      // image de profile
-                      child: CircleAvatar(
-                        backgroundImage: AssetImage("images/beach.jpg"),
-                        radius: 57,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              Text(
-                "Matthieu Codabee",
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w900,
-                  fontStyle: FontStyle.italic,
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.all(10),
-                child : Text(
-                  "Un jour les chats domineront le monde mais pas aujourd'hui " +
-                  "c'est le jour de la sieste",
-                  style: TextStyle(
-                    color: Colors.grey,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-              )
+              profilePictureAndPictureCover(screenSizeWidth: screenSize.width),
+              // nom de profil
+              name(),
+              // presentation
+              presentation(),
+              // button
+              button(),
+              divider(),
+              aboutUsTitle("A propos de moi"),
+              aboutUs(Icons.house, "Hyères les palmiers, France"),
+              aboutUs(Icons.work, "Développeur IOS"),
+              aboutUs(Icons.favorite, "couple"),
+              divider(),
+              aboutUsTitle("Amis"),
             ],
           ),
         ),
@@ -93,6 +66,144 @@ class MyHomePage extends StatelessWidget{
         width: width,
         height: height,
         fit: BoxFit.cover,
+      );
+  }
+ Stack profilePictureAndPictureCover({double? screenSizeWidth}) {
+    return Stack(
+      // pour placer l'image en haut
+      alignment: Alignment.topCenter,
+      children: [
+        // taille total
+        fromAsset(height : 200, width : screenSizeWidth),
+        Padding(
+          // permet de placer l'image du circle avatar plus bas
+          padding: EdgeInsets.only(top: 130),
+          // bordure blanche de la photo de profil
+          child : CircleAvatar(
+            backgroundColor: Colors.white,
+            radius: 60,
+            // image de profile
+            child: CircleAvatar(
+              backgroundImage: AssetImage("images/beach.jpg"),
+              radius: 57,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Text name() {
+    return Text(
+      "Matthieu Codabee",
+      style: TextStyle(
+        fontSize: 20,
+        fontWeight: FontWeight.w900,
+        fontStyle: FontStyle.italic,
+      ),
+    );
+  }
+
+  Container presentation() {
+    return Container(
+      margin: EdgeInsets.all(10),
+      child : Text(
+        "Un jour les chats domineront le monde mais pas aujourd'hui "
+            + "c'est le jour de la sieste",
+        style: TextStyle(
+          color: Colors.grey,
+        ),
+        textAlign: TextAlign.center,
+      ),
+    );
+  }
+
+  Row button() {
+    return Row(
+        children : [
+          Padding(
+            padding : EdgeInsets.only(left: 10),
+            child : ElevatedButton(
+              style: ButtonStyle(
+                shape:  MaterialStateProperty.all(
+                    RoundedRectangleBorder(side: BorderSide.none,
+                        borderRadius: BorderRadius.circular(20))),
+                // StadiumBorder(side: BorderSide.none)),
+                backgroundColor: MaterialStateProperty.all<Color>
+                  (Colors.blue),
+                padding: MaterialStateProperty.all<EdgeInsetsGeometry>
+                  (EdgeInsets.symmetric(vertical : 15, horizontal: 110)),
+              ),
+              onPressed: null,
+              child: Text(
+                "Modifier profil",
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          ),
+          Spacer(),
+          Padding(
+            padding: EdgeInsets.only(right: 10),
+            child : ElevatedButton(
+              style: ButtonStyle(
+                shape:  MaterialStateProperty.all(
+                    RoundedRectangleBorder(side: BorderSide.none,
+                        borderRadius: BorderRadius.circular(25))),
+                // StadiumBorder(side: BorderSide.none)),
+                backgroundColor: MaterialStateProperty.all<Color>
+                  (Colors.blue),
+                padding: MaterialStateProperty.all<EdgeInsetsGeometry>
+                  (EdgeInsets.symmetric(vertical : 15, horizontal: 5)),
+              ),
+              onPressed: null,
+              child: Icon(
+                Icons.border_color,
+                color: Colors.white,
+              ),
+            ),
+          ),
+        ]
+    );
+  }
+
+  Padding divider() {
+    return Padding(
+      padding : EdgeInsets.only(top: 5),
+      child : Divider(
+        height: 1,
+        color: Colors.grey,
+        thickness: 0.2,
+      ),
+    );
+  }
+
+  Container aboutUsTitle(String text) {
+    return Container(
+      alignment: Alignment.topLeft,
+      padding: EdgeInsets.only(top : 5),
+      child: Text(text,
+        style: TextStyle(
+          fontWeight: FontWeight.w900,
+          fontSize: 15,
+        ),
+        textAlign: TextAlign.left,
+        textDirection: TextDirection.ltr,
+      ),
+    );
+  }
+
+    Row aboutUs(IconData icon, String text) {
+      return Row(
+        children: [
+          Icon(icon),
+          Text(text,
+            style: TextStyle(
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+        ],
       );
   }
 }
