@@ -54,6 +54,18 @@ class MyHomePage extends StatelessWidget{
               aboutUs(Icons.favorite, "couple"),
               divider(),
               aboutUsTitle("Amis"),
+              // liste d'amis
+              Padding(
+                padding: EdgeInsets.only(left: 12),
+                child : Row(
+                  children: [
+                    friends(),
+                    friends(),
+                    friends(),
+                  ],
+                ),
+              ),
+              divider(),
             ],
           ),
         ),
@@ -194,16 +206,38 @@ class MyHomePage extends StatelessWidget{
     );
   }
 
-    Row aboutUs(IconData icon, String text) {
-      return Row(
-        children: [
-          Icon(icon),
-          Text(text,
-            style: TextStyle(
-              fontWeight: FontWeight.w500,
+  Row aboutUs(IconData icon, String text) {
+    return Row(
+      children: [
+        Icon(icon),
+        Text(text,
+          style: TextStyle(
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+      ],
+    );
+  }
+
+  Padding friends() {
+    return Padding(
+      padding: EdgeInsets.only(right: 12),
+      child :Column(
+        children : [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(15.0),
+            child : SizedBox.fromSize(
+              child :Image.network(
+                "https://images.pexels.com/photos/1756086/pexels-photo-1756086.jpeg?cs=srgb&dl=pexels-jo%C3%A3o-v%C3%ADtor-heinrichs-1756086.jpg&fm=jpg",
+                width : 120,
+                height : 160,
+                fit: BoxFit.fill,
+              ),
             ),
           ),
+          Text("Isabelle"),
         ],
-      );
+      ),
+    );
   }
 }
