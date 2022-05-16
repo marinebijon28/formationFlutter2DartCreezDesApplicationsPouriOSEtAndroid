@@ -66,6 +66,9 @@ class MyHomePage extends StatelessWidget{
                 ),
               ),
               divider(),
+              post(width: screenSize.width),
+              post(width: screenSize.width),
+              post(width: screenSize.width),
             ],
           ),
         ),
@@ -237,6 +240,70 @@ class MyHomePage extends StatelessWidget{
           ),
           Text("Isabelle"),
         ],
+      ),
+    );
+  }
+  Padding post({double? width}) {
+    return Padding(
+      padding: EdgeInsets.only(top: 15),
+      child : Container(
+        color: Color.fromRGBO(206, 206, 206, 1.0),
+        width: width,
+        height: 400,
+        child: Padding(
+            padding: EdgeInsets.all(10),
+            child: Column(
+                children: [
+                  Row(
+                    children: [
+                      CircleAvatar(
+                        backgroundImage: AssetImage("images/beach.jpg"),
+                        radius: 20,
+                      ),
+                      Text(
+                        "Matthieu Codabee",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                      Spacer(),
+                      Text(
+                        "Il y a 5 heures",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(top: 8, right: 0.5,
+                        left: 0.5, bottom: 8),
+                    child: Image.network(
+                      "https://images.pexels.com/photos/1440476/pexels-"
+                          "photo-1440476.jpeg?cs=srgb&dl=pexels-bagus-pange"
+                          "stu-1440476.jpg&fm=jpg",
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  Text(
+                      "Seul sur le sable, les yeux dans l'eau, mon rêve" +
+                          " était trop beau…",
+                      style : TextStyle(
+                        fontSize: 15,
+                      )
+                  ),
+                  Row(
+                    mainAxisAlignment : MainAxisAlignment.spaceAround,
+                    children: [
+                      Icon(Icons.favorite),
+                      Text("36 likes"),
+                      Icon(Icons.message),
+                      Text("12 commentaires")
+                    ],
+                  )
+                ]
+            )
+        ),
       ),
     );
   }
