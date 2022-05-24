@@ -243,7 +243,7 @@ class Table {
   // Methodes
 }
 
-Pour ne pas avoir une erreur on passe à la méthode 4. C'est une façon avec des attributs required. On ne peut pas avoir des valeurs par défaut.
+Pour ne pas avoir une erreur on passe à la méthode 4. C'est une façon avec des attributs required. On ne peut pas avoir des valeurs par défaut mais un null safely.
 
 void main() {
   // POO tout est un objet
@@ -289,3 +289,159 @@ class Table {
   // Methodes
 }
 
+# Les méthodes
+Les méthodes sont simplement les fonctions et pourra effectuer des actions. J'aurais donc une méthode extendTable.
+
+void main() {
+  // POO tout est un objet
+  /* 
+   * Exemple : Widget, Text, Notre post dans l'application 
+   * précédente... String ou int aussi...
+   */
+  /*
+   * Va avoir les mêmes attributs et méthodes avec des valeurs 
+   * qui peuvent être différentes
+   */
+  // Réapplicable à l'infini
+  // Une table 
+  // Attributs :
+  // Plateau
+  // Hauteur
+  // Pieds
+  // Largeur
+  // Longueur
+  // Matière
+  // Même chose pour un post, un utilisateur,
+  
+  Table tableIkea = Table(pieds : 1, hauteur : 32, largeur : 45, longueur : 250, matiere : "Savon", extensible : true);
+  
+  print(tableIkea.pieds);
+  print(tableIkea.hauteur);
+  print("Ma table est longue de ${tableIkea.longueur} cm et large de ${tableIkea.largeur} cm.");
+  print(tableIkea.matiere);
+  tableIkea.extendTable();
+  print(tableIkea.longueur);
+}
+
+On pourrait avoir une fonction avec retour 
+
+void main() {
+  // POO tout est un objet
+  /* 
+   * Exemple : Widget, Text, Notre post dans l'application 
+   * précédente... String ou int aussi...
+   */
+  /*
+   * Va avoir les mêmes attributs et méthodes avec des valeurs 
+   * qui peuvent être différentes
+   */
+  // Réapplicable à l'infini
+  // Une table 
+  // Attributs :
+  // Plateau
+  // Hauteur
+  // Pieds
+  // Largeur
+  // Longueur
+  // Matière
+  // Même chose pour un post, un utilisateur,
+  
+  Table tableIkea = Table(pieds : 1, hauteur : 32, largeur : 45, longueur : 250, matiere : "Savon", extensible : true);
+  
+  print(tableIkea.pieds);
+  print(tableIkea.hauteur);
+  print("Ma table est longue de ${tableIkea.longueur} cm et large de ${tableIkea.largeur} cm.");
+  print(tableIkea.matiere);
+  tableIkea.extendTable();
+  print(tableIkea.longueur);
+  String aPrinter = tableIkea.caract();
+  print(aPrinter);
+}
+
+class Table {
+  // Attributs 
+  int pieds;
+  double? hauteur;
+  double? largeur;
+  double longueur;
+  String matiere;
+  bool extensible;
+  
+  // Constructeurs
+  Table({required this.pieds, required this.hauteur, required this.largeur, required this.longueur, required this.matiere, this.extensible = false});
+    
+  // Methodes
+  extendTable() {
+    if (extensible) {
+      this.longueur += 20;
+   }
+  }
+  
+  String caract() {
+    return "Salut je suis la table en $matiere, je suis haute de $hauteur longue de largeur $longueur et large $largeur \n avec des pieds $pieds je suis super stable pour le petit déjeuner";
+  }
+}
+
+On pourtait avoir une fonction void c'est-à-dire sans rien. Avec un int nouveau nombre. On va pouvoir changer le nombre de pieds.
+
+void main() {
+  // POO tout est un objet
+  /* 
+   * Exemple : Widget, Text, Notre post dans l'application 
+   * précédente... String ou int aussi...
+   */
+  /*
+   * Va avoir les mêmes attributs et méthodes avec des valeurs 
+   * qui peuvent être différentes
+   */
+  // Réapplicable à l'infini
+  // Une table 
+  // Attributs :
+  // Plateau
+  // Hauteur
+  // Pieds
+  // Largeur
+  // Longueur
+  // Matière
+  // Même chose pour un post, un utilisateur,
+  
+  Table tableIkea = Table(pieds : 1, hauteur : 32, largeur : 45, longueur : 250, matiere : "Savon", extensible : true);
+  
+  print(tableIkea.pieds);
+  print(tableIkea.hauteur);
+  print("Ma table est longue de ${tableIkea.longueur} cm et large de ${tableIkea.largeur} cm.");
+  print(tableIkea.matiere);
+  tableIkea.extendTable();
+  print(tableIkea.longueur);
+  tableIkea.changerPieds(12);
+  String aPrinter = tableIkea.caract();
+  print(aPrinter);
+}
+
+class Table {
+  // Attributs 
+  int pieds;
+  double? hauteur;
+  double? largeur;
+  double longueur;
+  String matiere;
+  bool extensible;
+  
+  // Constructeurs
+  Table({required this.pieds, required this.hauteur, required this.largeur, required this.longueur, required this.matiere, this.extensible = false});
+    
+  // Methodes
+  extendTable() {
+    if (extensible) {
+      this.longueur += 20;
+   }
+  }
+  
+  String caract() {
+    return "Salut je suis la table en $matiere, je suis haute de $hauteur longue de largeur $longueur et large $largeur \n avec des pieds $pieds je suis super stable pour le petit déjeuner";
+  }
+  
+  changerPieds(int nouveauNombre) {
+    pieds = nouveauNombre;
+  }
+}
