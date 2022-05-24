@@ -445,3 +445,91 @@ class Table {
     pieds = nouveauNombre;
   }
 }
+
+# L'héritage
+L'héritage va nous permettre d'enfait d'avoir des objets qui seront légèrement différent qui auront les mêmes attributs et méthodes qu'une classe mais qui on en aura quelques une de plus. 
+
+On va avoir une classe mère qui va avoir les valeurs de base et la classe enfant qui va hériter de sa classe mère pour avoir des attributs et des méthodes en plus.
+
+On fait une classe TableEte on va vouloir qu'elle extends de Table. Avec un attribut parasol et sa méthode seProtéger. On va créer un constructeur TableEte. TableIkea n' a pas accès a seProtéger. TableEte hérite des attributs de la classe Table et ses méthodes, mais la classe mère n'a pas accès aux attributs de la classe fille.
+
+void main() {
+  // POO tout est un objet
+  /* 
+   * Exemple : Widget, Text, Notre post dans l'application 
+   * précédente... String ou int aussi...
+   */
+  /*
+   * Va avoir les mêmes attributs et méthodes avec des valeurs 
+   * qui peuvent être différentes
+   */
+  // Réapplicable à l'infini
+  // Une table 
+  // Attributs :
+  // Plateau
+  // Hauteur
+  // Pieds
+  // Largeur
+  // Longueur
+  // Matière
+  // Même chose pour un post, un utilisateur,
+  
+  Table tableIkea = Table(pieds : 1, hauteur : 32, largeur : 45, longueur : 250, matiere : "Savon", extensible : true);
+  
+  print(tableIkea.pieds);
+  print(tableIkea.hauteur);
+  print("Ma table est longue de ${tableIkea.longueur} cm et large de ${tableIkea.largeur} cm.");
+  print(tableIkea.matiere);
+  tableIkea.extendTable();
+  print(tableIkea.longueur);
+  tableIkea.changerPieds(12);
+  String aPrinter = tableIkea.caract();
+  print(aPrinter);
+  TableEte ete = TableEte(parasol: "Perrier", pieds : 3, hauteur : 84, largeur : 375, longueur : 375, matiere : "Plastique", extensible : true);
+  ete.seProteger();
+}
+
+class Table {
+  // Attributs 
+  int pieds;
+  double? hauteur;
+  double? largeur;
+  double longueur;
+  String matiere;
+  bool extensible;
+  
+  // Constructeurs
+  Table({required this.pieds, required this.hauteur, required this.largeur, required this.longueur, required this.matiere, this.extensible = false});
+    
+  // Methodes
+  extendTable() {
+    if (extensible) {
+      this.longueur += 20;
+   }
+  }
+  
+  String caract() {
+    return "Salut je suis la table en $matiere, je suis haute de $hauteur longue de largeur $longueur et large $largeur \n avec des pieds $pieds je suis super stable pour le petit déjeuner";
+  }
+  
+  changerPieds(int nouveauNombre) {
+    pieds = nouveauNombre;
+  }
+}
+
+class TableEte extends Table {
+  String parasol;
+  
+  TableEte({required this.parasol, required int pieds, required double hauteur, required double largeur, required double longueur, required String matiere, bool extensible = true}) : super(
+  pieds : pieds, 
+  hauteur : hauteur, 
+  largeur : largeur, 
+  longueur : longueur, 
+  matiere : matiere,
+  );
+  
+  seProteger() {
+    print("On est bien mieux à l'abri du soleil");
+  }
+}
+
