@@ -533,3 +533,205 @@ class TableEte extends Table {
   }
 }
 
+# Enum
+C'est une sorte d'objet ou on va avoir plusieurs cas. On a besoin du mot clé enum avec plusieurs propositions dedans. on va enuméré un certain nombre de cas.
+
+void main() {
+  // POO tout est un objet
+  /* 
+   * Exemple : Widget, Text, Notre post dans l'application 
+   * précédente... String ou int aussi...
+   */
+  /*
+   * Va avoir les mêmes attributs et méthodes avec des valeurs 
+   * qui peuvent être différentes
+   */
+  // Réapplicable à l'infini
+  // Une table 
+  // Attributs :
+  // Plateau
+  // Hauteur
+  // Pieds
+  // Largeur
+  // Longueur
+  // Matière
+  // Même chose pour un post, un utilisateur,
+  
+  Table tableIkea = Table(pieds : 1, hauteur : 32, largeur : 45, longueur : 250, matiere : "Savon", extensible : true);
+  
+  print(tableIkea.pieds);
+  print(tableIkea.hauteur);
+  print("Ma table est longue de ${tableIkea.longueur} cm et large de ${tableIkea.largeur} cm.");
+  print(tableIkea.matiere);
+  tableIkea.extendTable();
+  print(tableIkea.longueur);
+  tableIkea.changerPieds(12);
+  String aPrinter = tableIkea.caract();
+  print(aPrinter);
+  TableEte ete = TableEte(typeTable : TypeDeTable.tableDeJardin, parasol: "Perrier", pieds : 3, hauteur : 84, largeur : 375, longueur : 375, matiere : "Plastique", extensible : true);
+  ete.seProteger();
+  ete.checkType();
+}
+
+class Table {
+  // Attributs 
+  int pieds;
+  double? hauteur;
+  double? largeur;
+  double longueur;
+  String matiere;
+  bool extensible;
+  
+  // Constructeurs
+  Table({required this.pieds, required this.hauteur, required this.largeur, required this.longueur, required this.matiere, this.extensible = false});
+    
+  // Methodes
+  extendTable() {
+    if (extensible) {
+      this.longueur += 20;
+   }
+  }
+  
+  String caract() {
+    return "Salut je suis la table en $matiere, je suis haute de $hauteur longue de largeur $longueur et large $largeur \n avec des pieds $pieds je suis super stable pour le petit déjeuner";
+  }
+  
+  changerPieds(int nouveauNombre) {
+    pieds = nouveauNombre;
+  }
+}
+
+class TableEte extends Table {
+  String parasol;
+  TypeDeTable typeTable;
+  
+  TableEte({required this.typeTable, required this.parasol, required int pieds, required double hauteur, required double largeur, required double longueur, required String matiere, bool extensible = true}) : super(
+  pieds : pieds, 
+  hauteur : hauteur, 
+  largeur : largeur, 
+  longueur : longueur, 
+  matiere : matiere,
+  );
+  
+  seProteger() {
+    print("On est bien mieux à l'abri du soleil");
+  }
+  
+  checkType() {
+    print(typeTable);
+  }
+}
+
+enum TypeDeTable {
+  tableDeJardin,
+  tableDeSalon,
+  tableAManger,
+  tableDePingPong
+}
+
+On va utiliser un switch pour retourner le type de table sous forme de string. Le principe des enums c'est de choisir les choix qu'on a prédéfinie.
+
+void main() {
+  // POO tout est un objet
+  /* 
+   * Exemple : Widget, Text, Notre post dans l'application 
+   * précédente... String ou int aussi...
+   */
+  /*
+   * Va avoir les mêmes attributs et méthodes avec des valeurs 
+   * qui peuvent être différentes
+   */
+  // Réapplicable à l'infini
+  // Une table 
+  // Attributs :
+  // Plateau
+  // Hauteur
+  // Pieds
+  // Largeur
+  // Longueur
+  // Matière
+  // Même chose pour un post, un utilisateur,
+  
+  Table tableIkea = Table(pieds : 1, hauteur : 32, largeur : 45, longueur : 250, matiere : "Savon", extensible : true);
+  
+  print(tableIkea.pieds);
+  print(tableIkea.hauteur);
+  print("Ma table est longue de ${tableIkea.longueur} cm et large de ${tableIkea.largeur} cm.");
+  print(tableIkea.matiere);
+  tableIkea.extendTable();
+  print(tableIkea.longueur);
+  tableIkea.changerPieds(12);
+  String aPrinter = tableIkea.caract();
+  print(aPrinter);
+  TableEte ete = TableEte(typeTable : TypeDeTable.tableDeJardin, parasol: "Perrier", pieds : 3, hauteur : 84, largeur : 375, longueur : 375, matiere : "Plastique", extensible : true);
+  ete.seProteger();
+  print(ete.checkType());
+}
+
+class Table {
+  // Attributs 
+  int pieds;
+  double? hauteur;
+  double? largeur;
+  double longueur;
+  String matiere;
+  bool extensible;
+  
+  // Constructeurs
+  Table({required this.pieds, required this.hauteur, required this.largeur, required this.longueur, required this.matiere, this.extensible = false});
+    
+  // Methodes
+  extendTable() {
+    if (extensible) {
+      this.longueur += 20;
+   }
+  }
+  
+  String caract() {
+    return "Salut je suis la table en $matiere, je suis haute de $hauteur longue de largeur $longueur et large $largeur \n avec des pieds $pieds je suis super stable pour le petit déjeuner";
+  }
+  
+  changerPieds(int nouveauNombre) {
+    pieds = nouveauNombre;
+  }
+}
+
+class TableEte extends Table {
+  String parasol;
+  TypeDeTable typeTable;
+  
+  TableEte({required this.typeTable, required this.parasol, required int pieds, required double hauteur, required double largeur, required double longueur, required String matiere, bool extensible = true}) : super(
+  pieds : pieds, 
+  hauteur : hauteur, 
+  largeur : largeur, 
+  longueur : longueur, 
+  matiere : matiere,
+  );
+  
+  seProteger() {
+    print("On est bien mieux à l'abri du soleil");
+  }
+  
+  String checkType() {
+    switch (typeTable)
+    {
+      case TypeDeTable.tableDeJardin :
+        return "table de jardin";
+      case TypeDeTable.tableDeSalon :
+        return "table de salon";
+      case TypeDeTable.tableDePingPong :
+        return "table de pin pong";
+      case TypeDeTable.tableAManger :
+        return "table a manger";
+    }
+  }
+}
+
+enum TypeDeTable {
+  tableDeJardin,
+  tableDeSalon,
+  tableAManger,
+  tableDePingPong
+}
+
+# Dans un projet Flutter
