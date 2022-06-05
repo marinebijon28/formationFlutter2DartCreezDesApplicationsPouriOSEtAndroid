@@ -270,6 +270,16 @@ class BasicPage extends StatelessWidget {
           ),
           Padding(
             padding: EdgeInsets.only(top: 8, bottom: 8),
+            /**
+             * Maintenant si je vais sur mon main.dart. Vous allez voir que j'ai
+             * une erreur. Si je fais post._imagePath. La variable n'est pas
+             * accessible. Vous voyez que c'est privé et que ça reste privé à la
+             * librairie ou à la classe. La vous voyez qu'on est pas dans la
+             * même classe on y a pas accès. Donc ça va nous permettre si on a
+             * des trucs qu'on ne voudrait pas modifier ou qu'on voudrait
+             * obtenir de façon spéciale. Ici par exemple ce qu'on pouvait faire
+             * c'est avoir un _imagePath
+             */
             child: Image.asset(post.imagePath, fit: BoxFit.cover),
           ),
           Text(post.desc,
